@@ -30,6 +30,12 @@ class Cellphone {
   void playsAMusic(String song) {
     print('Speaker ($_speaker): Plays a music -> "$song"');
   }
+
+  void executeAllBehaviors(String message, String song) {
+    tookAPhoto();
+    sendMessage(message);
+    playsAMusic(song);
+  }
 }
 
 void main() {
@@ -56,37 +62,23 @@ void main() {
   print('       PC16 WEEK 9 - CELLPHONE OOP PROGRAM        ');
   print('==================================================\n');
 
-  print('--- DEMO 1: List Collection Iteration ---');
   for (int i = 0; i < phoneList.length; i++) {
-    print('\n[ Cellphone Unit ${i + 1} Details ]');
-    print('Properties:');
-    print(' - Speaker:  ${phoneList[i].speaker}');
-    print(' - Camera:   ${phoneList[i].camera}');
-    print(' - Keyboard: ${phoneList[i].keyboard}');
-
-    print('\nBehaviors Executed:');
-    phoneList[i].tookAPhoto();
-    phoneList[i].sendMessage('Hello from Unit ${i + 1}!');
-    phoneList[i].playsAMusic('Track #${i + 1}');
+    print('--- Cellphone Unit ${i + 1} ---');
+    print('Speaker:  ${phoneList[i].speaker}');
+    print('Camera:   ${phoneList[i].camera}');
+    print('Keyboard: ${phoneList[i].keyboard}');
+    print('\n[ Executing Behaviors in 1 Execution ]');
+    phoneList[i].executeAllBehaviors('Hello from Unit ${i + 1}!', 'Track #${i + 1}');
+    print('');
   }
 
-  print('\n--------------------------------------------------');
+  print('--------------------------------------------------');
+  print('--- Encapsulation Update & Single Execution Call ---');
+  
+  phoneMap['Unit A']?.speaker = 'Dolby Atmos Quad Speaker';
+  print('Updated Speaker for Unit A: ${phoneMap['Unit A']?.speaker}\n');
+  
+  phoneMap['Unit A']?.executeAllBehaviors('Updated message!', 'High-Res Audio');
 
-  print('--- DEMO 2: Encapsulation (Private Field Access) ---');
-  print('Initial Speaker (phone1): ${phone1.speaker}');
-
-  phone1.speaker = 'Dolby Atmos Quad Speaker';
-  print('Updated Speaker (phone1): ${phone1.speaker}');
-
-  phone1.playsAMusic('Spatial Audio Track');
-
-  print('\n--------------------------------------------------');
-
-  print('--- DEMO 3: Map Collection Access ---');
-  print('Accessing "Unit B" from Map:');
-  phoneMap['Unit B']?.tookAPhoto();
-  phoneMap['Unit B']?.sendMessage('Message via Map lookup');
-  phoneMap['Unit B']?.playsAMusic('Acoustic Track');
-
-  print('\n==================================================');
+  print('==================================================');
 }
