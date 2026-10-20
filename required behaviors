@@ -11,3 +11,13 @@ Cellphone({
     required this.keyboard,
   }) : _speaker = speaker;
 
+LIST
+List<Cellphone> phoneList = [phone1, phone2];
+
+MAP IN USE
+Map<String, Cellphone> phoneMap = {
+    'Unit A': phone1,
+    'Unit B': phone2,
+
+
+
