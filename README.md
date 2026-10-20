@@ -12,3 +12,15 @@ BSIT 3.3
 
 This project models a real-world Cellphone object as a Dart class using core Object-Oriented Programming (OOP) concepts. It implements custom properties, methods, encapsulation, and collections (Lists and Maps) to demonstrate fundamental Dart language principles required for Milestone 2.
 
+**Object Modeling & Mapping**
+
+- **Chosen Object:** Cellphone
+- **Properties:**
+  1. `_speaker` (Private field encapsulated with `_`, accessed via Getter and Setter)
+  2. `camera` (Public String property)[cite: 1]
+  3. `keyboard` (Public String property)[cite: 1]
+- **Behaviors:**
+  1. `tookAPhoto()` — Simulates taking a photo using the camera[cite: 1].
+  2. `sendMessage(String message)` — Simulates sending a message using the keyboard[cite: 1].
+  3. `playsAMusic(String song)` — Plays audio through the speaker[cite: 1].
+  4. `executeAllBehaviors(message, song)` — Triggers all 3 behaviors in 1 execution call.
