@@ -3,3 +3,11 @@ class Cellphone {
   String _speaker;
   String camera;
   String keyboard;
+
+CONSTRUCTOR
+Cellphone({
+    required String speaker,
+    required this.camera,
+    required this.keyboard,
+  }) : _speaker = speaker;
+
