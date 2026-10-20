@@ -1,1 +1,92 @@
+class Cellphone {
+  String _speaker;
+  String camera;
+  String keyboard;
 
+  Cellphone({
+    required String speaker,
+    required this.camera,
+    required this.keyboard,
+  }) : _speaker = speaker;
+
+  String get speaker => _speaker;
+
+  set speaker(String newSpeaker) {
+    if (newSpeaker.trim().isNotEmpty) {
+      _speaker = newSpeaker;
+    } else {
+      print('Error: Speaker description cannot be empty.');
+    }
+  }
+
+  void tookAPhoto() {
+    print('Camera ($camera): Took a photo!');
+  }
+
+  void sendMessage(String message) {
+    print('Keyboard ($keyboard): Send a message -> "$message"');
+  }
+
+  void playsAMusic(String song) {
+    print('Speaker ($_speaker): Plays a music -> "$song"');
+  }
+}
+
+void main() {
+  Cellphone phone1 = Cellphone(
+    speaker: 'Stereo Dual Speaker',
+    camera: '108 MP Ultra HD Camera',
+    keyboard: 'On-Screen QWERTY Keyboard',
+  );
+
+  Cellphone phone2 = Cellphone(
+    speaker: 'Mono Speaker',
+    camera: '12 MP Camera',
+    keyboard: 'Physical Keypad',
+  );
+
+  List<Cellphone> phoneList = [phone1, phone2];
+
+  Map<String, Cellphone> phoneMap = {
+    'Unit A': phone1,
+    'Unit B': phone2,
+  };
+
+  print('==================================================');
+  print('       PC16 WEEK 9 - CELLPHONE OOP PROGRAM        ');
+  print('==================================================\n');
+
+  print('--- DEMO 1: List Collection Iteration ---');
+  for (int i = 0; i < phoneList.length; i++) {
+    print('\n[ Cellphone Unit ${i + 1} Details ]');
+    print('Properties:');
+    print(' - Speaker:  ${phoneList[i].speaker}');
+    print(' - Camera:   ${phoneList[i].camera}');
+    print(' - Keyboard: ${phoneList[i].keyboard}');
+
+    print('\nBehaviors Executed:');
+    phoneList[i].tookAPhoto();
+    phoneList[i].sendMessage('Hello from Unit ${i + 1}!');
+    phoneList[i].playsAMusic('Track #${i + 1}');
+  }
+
+  print('\n--------------------------------------------------');
+
+  print('--- DEMO 2: Encapsulation (Private Field Access) ---');
+  print('Initial Speaker (phone1): ${phone1.speaker}');
+
+  phone1.speaker = 'Dolby Atmos Quad Speaker';
+  print('Updated Speaker (phone1): ${phone1.speaker}');
+
+  phone1.playsAMusic('Spatial Audio Track');
+
+  print('\n--------------------------------------------------');
+
+  print('--- DEMO 3: Map Collection Access ---');
+  print('Accessing "Unit B" from Map:');
+  phoneMap['Unit B']?.tookAPhoto();
+  phoneMap['Unit B']?.sendMessage('Message via Map lookup');
+  phoneMap['Unit B']?.playsAMusic('Acoustic Track');
+
+  print('\n==================================================');
+}
