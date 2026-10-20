@@ -24,6 +24,9 @@ This project models a real-world Cellphone object as a Dart class using core Obj
   3. `playsAMusic(String song)` — Plays audio through the speaker
 
 **Execution Instructions**
+
 Open DartPad.
+
 Copy the code from bin/cellphone.dart.
+
 Paste into DartPad and click Run.
